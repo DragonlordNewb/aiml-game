@@ -1,0 +1,1 @@
+VOWELS = list("aeiouAEIOU")
