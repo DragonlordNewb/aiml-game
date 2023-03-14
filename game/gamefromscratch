@@ -1,0 +1,21 @@
+#classes:
+
+#class npc_traits:
+
+#class enviroment
+
+#class inventory
+
+#class player_status
+
+
+#functions:
+
+#def store_user_input():
+
+#def output_info():
+
+#def combat():
+
+
+#variables:
