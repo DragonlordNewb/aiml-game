@@ -1,8 +1,22 @@
 #classes:
 
-class npc_traits:
- 	def __init__(npc, health, strength, resistance inventory, intelligence)
-	
+class npc:
+	def __init__(npc, health, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities):
+		npc.hp = health
+		npc.inv = inventory
+		npc.str = strength
+		npc.dex = dexterity
+		npc.int = intelligence
+		npc.wis = wisdom
+		npc.cha = charisma
+		npc.res = resistances
+		npc.imm = immunities
+	def heal(self, damage):
+		npc.dmg = damage
+		npc.hp += damage
+
+#usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm), dog.heal(10) dog.heal(-10)
+
 #class enviroment
 
 #class inventory
