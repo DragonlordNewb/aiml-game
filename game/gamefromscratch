@@ -1,7 +1,7 @@
 #classes:
 
 class npc_traits:
- 	def __init__(npc, health, strength, inventory, intelligence)
+ 	def __init__(npc, health, strength, resistance inventory, intelligence)
 	
 #class enviroment
 
