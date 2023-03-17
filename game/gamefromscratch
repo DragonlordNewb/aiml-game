@@ -3,21 +3,27 @@
 class npc:
 	def __init__(npc, health, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities):
 		npc.hp = health
-		npc.inv = inventory
 		npc.str = strength
 		npc.dex = dexterity
 		npc.int = intelligence
 		npc.wis = wisdom
 		npc.cha = charisma
+		npc.inv = inventory
 		npc.res = resistances
 		npc.imm = immunities
-	def heal(self, damage):
-		npc.dmg = damage
-		npc.hp += damage
+		npc.inv = []
+		npc.res = []
+		npc.imm = []
 
-#usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm), dog.heal(10) dog.heal(-10)
+#usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm)
 
-#class enviroment
+class enviroment:
+	def __init__(location, modifiers, effects, loot, npcs, resources):
+		location.mod = modifiers
+		location.eff = effects
+		location.loot = loot
+		location.npcs = npcs
+		location.reso = resources
 
 #class inventory
 
