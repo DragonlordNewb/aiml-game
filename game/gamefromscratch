@@ -1,7 +1,4 @@
-#imports 
 import engine
-
-
 #classes:
 
 class npc:
