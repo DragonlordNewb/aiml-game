@@ -32,6 +32,36 @@ class npc:
 
 #usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
 
+class player:
+	def __init__(player, health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
+		player.hp = health
+		player.exp = experience
+		player.str = strength
+		player.dex = dexterity
+		player.int = intelligence
+		player.wis = wisdom
+		player.cha = charisma
+		player.inv = inventory
+		player.res = resistances
+		player.imm = immunities
+		player.eff = effects
+		player.inv = []
+		player.res = []
+		player.imm = []
+		player.eff = []
+
+	def gain_item(player, item):
+		player.inv.append(item)
+	def gain_res(player, resist):
+		player.inv.append(resist)
+	def gain_imm(player, immune):
+		player.inv.append(immune)
+	def gain_effect(player, effect):
+		player.inv.append(effect)
+		
+
+#usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
+
 class enviroment:
 	def __init__(location, modifiers, effects, loot, npcs, resources):
 		location.mod = modifiers
@@ -41,8 +71,6 @@ class enviroment:
 		location.reso = resources
 
 #class inventory
-
-#class player_status
 
 
 #functions:
