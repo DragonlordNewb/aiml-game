@@ -1,6 +1,8 @@
+#imports
 import engine
-#classes:
 
+
+#classes:
 class npc:
 	def __init__(npc, health, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities):
 		npc.hp = health
