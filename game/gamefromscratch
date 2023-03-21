@@ -3,61 +3,46 @@ import engine, math, random
 
 
 #classes:
-class npc:
-	def __init__(npc, health, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
-		npc.hp = health
-		npc.str = strength
-		npc.dex = dexterity
-		npc.int = intelligence
-		npc.wis = wisdom
-		npc.cha = charisma
-		npc.inv = inventory
-		npc.res = resistances
-		npc.imm = immunities
-		npc.eff = effects
-		npc.inv = []
-		npc.res = []
-		npc.imm = []
-		npc.eff = []
+class character:
+	def __init__(char, health, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
+		self.hp = health
+		self.str = strength
+		self.dex = dexterity
+		self.int = intelligence
+		self.wis = wisdom
+		self.cha = charisma
+		self.inv = inventory
+		self.res = resistances
+		self.imm = immunities
+		self.eff = effects
+		self.inv = []
+		self.res = []
+		self.imm = []
+		self.eff = []
 
-	def gain_item(npc, item):
-		npc.inv.append(item)
-	def gain_res(npc, resist):
-		npc.inv.append(resist)
-	def gain_imm(npc, immune):
-		npc.inv.append(immune)
-	def gain_effect(npc, effect):
-		npc.inv.append(effect)
+	def gain_item(char, item):
+		self.inv.append(item)
+	def gain_res(char, resist):
+		self.inv.append(resist)
+	def gain_imm(char, immune):
+		self.inv.append(immune)
+	def gain_effect(char, effect):
+		self.inv.append(effect)
 		
 
 #usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
 
-class player:
+class player(character):
 	def __init__(player, health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
-		player.hp = health
-		player.exp = experience
-		player.str = strength
-		player.dex = dexterity
-		player.int = intelligence
-		player.wis = wisdom
-		player.cha = charisma
-		player.inv = inventory
-		player.res = resistances
-		player.imm = immunities
-		player.eff = effects
-		player.inv = []
-		player.res = []
-		player.imm = []
-		player.eff = []
 
 	def gain_item(player, item):
-		player.inv.append(item)
+		self.inv.append(item)
 	def gain_res(player, resist):
-		player.inv.append(resist)
+		self.inv.append(resist)
 	def gain_imm(player, immune):
-		player.inv.append(immune)
+		self.inv.append(immune)
 	def gain_effect(player, effect):
-		player.inv.append(effect)
+		self.inv.append(effect)
 		
 
 #usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
