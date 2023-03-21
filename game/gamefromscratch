@@ -3,8 +3,8 @@ import engine, math, random
 
 
 #classes:
-class Character:
-	def __init__(char, health, inventory, strength, dexterity, intelligence, wisdom, charisma, alignment, resistances, immunities, effects):
+class character:
+	def __init__(char, health, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
 		self.hp = health
 		self.str = strength
 		self.dex = dexterity
@@ -12,7 +12,6 @@ class Character:
 		self.wis = wisdom
 		self.cha = charisma
 		self.inv = inventory
-		self.align = alignment
 		self.res = resistances
 		self.imm = immunities
 		self.eff = effects
@@ -31,9 +30,9 @@ class Character:
 		self.inv.append(effect)
 		
 
-#usage: human = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
+#usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
 
-class Player(character):
+class player(character):
 	def __init__(player, health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
 
 	def gain_item(player, item):
@@ -48,7 +47,23 @@ class Player(character):
 
 #usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
 
-class Enviroment:
+#zombie
+class zombie:
+	def__init__(health, effects, state, zombie_id):
+		zombie.hp = health
+		zombie.eff = effects
+		zombie.state = state
+	
+	def gain_effect(zombie_id, effect):
+		self.inv.append(effect)
+		
+	#stuff to do
+	#wander
+	#attack
+	#noise_groan
+	
+
+class enviroment:
 	def __init__(location, modifiers, effects, loot, npcs, resources):
 		location.mod = modifiers
 		location.eff = effects
