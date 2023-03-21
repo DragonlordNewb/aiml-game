@@ -4,8 +4,9 @@ import engine, math, random
 
 #classes:
 class character:
-	def __init__(char, health, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
+	def __init__(char, health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
 		self.hp = health
+		self.exp = experience
 		self.str = strength
 		self.dex = dexterity
 		self.int = intelligence
@@ -63,7 +64,7 @@ class zombie:
 	#noise_groan
 	
 
-class enviroment:
+class room:
 	def __init__(location, modifiers, effects, loot, npcs, resources):
 		location.mod = modifiers
 		location.eff = effects
