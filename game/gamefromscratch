@@ -3,7 +3,7 @@ import engine, math, random
 
 
 #classes:
-class character:
+class player:
 	def __init__(char, health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
 		self.hp = health
 		self.exp = experience
@@ -31,10 +31,10 @@ class character:
 		self.inv.append(effect)
 		
 
-#usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
+#usage: player = player(health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects)
 
-class player(character):
-	def __init__(player, health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
+class zombie:
+	def __init__(npc, health, strength, dexterity, intelligence, wisdom, resistances, immunities, effects, drops):
 
 	def gain_item(player, item):
 		self.inv.append(item)
@@ -48,21 +48,6 @@ class player(character):
 
 #usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
 
-#zombie
-class zombie:
-	def__init__(health, effects, state, zombie_id):
-		zombie.hp = health
-		zombie.eff = effects
-		zombie.state = state
-	
-	def gain_effect(zombie_id, effect):
-		self.inv.append(effect)
-		
-	#stuff to do
-	#wander
-	#attack
-	#noise_groan
-	
 
 class room:
 	def __init__(location, modifiers, effects, loot, npcs, resources):
@@ -72,7 +57,7 @@ class room:
 		location.npcs = npcs
 		location.reso = resources
 
-#class inventory
+#class loot_table
 
 
 #functions:
