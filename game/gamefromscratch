@@ -3,8 +3,8 @@ import engine, math, random
 
 
 #classes:
-class character:
-	def __init__(char, health, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
+class Character:
+	def __init__(char, health, inventory, strength, dexterity, intelligence, wisdom, charisma, alignment, resistances, immunities, effects):
 		self.hp = health
 		self.str = strength
 		self.dex = dexterity
@@ -12,6 +12,7 @@ class character:
 		self.wis = wisdom
 		self.cha = charisma
 		self.inv = inventory
+		self.align = alignment
 		self.res = resistances
 		self.imm = immunities
 		self.eff = effects
@@ -30,9 +31,9 @@ class character:
 		self.inv.append(effect)
 		
 
-#usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
+#usage: human = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
 
-class player(character):
+class Player(character):
 	def __init__(player, health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
 
 	def gain_item(player, item):
@@ -47,7 +48,7 @@ class player(character):
 
 #usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
 
-class enviroment:
+class Enviroment:
 	def __init__(location, modifiers, effects, loot, npcs, resources):
 		location.mod = modifiers
 		location.eff = effects
