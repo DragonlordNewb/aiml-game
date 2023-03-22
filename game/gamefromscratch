@@ -51,11 +51,11 @@ class Zombie:
 
 class Room:
 	def __init__(location, modifiers, effects, loot, zombies, resources):
-		location.mod = modifiers
-		location.eff = effects
-		location.loot = loot
-		location.zom = zombies
-		location.reso = resources
+		self.mod = modifiers
+		self.eff = effects
+		self.loot = loot
+		self.zom = zombies
+		self.reso = resources
 
 #class loot_table
 
