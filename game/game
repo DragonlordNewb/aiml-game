@@ -4,14 +4,11 @@ import engine, math, random
 
 #classes:
 class Player:
-	def __init__(char, health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects):
+	def __init__(char, health, experience, inventory, strength, dexterity, resistances, immunities, effects):
 		self.hp = health
 		self.exp = experience
 		self.str = strength
 		self.dex = dexterity
-		self.int = intelligence
-		self.wis = wisdom
-		self.cha = charisma
 		self.inv = inventory
 		self.res = resistances
 		self.imm = immunities
@@ -34,36 +31,38 @@ class Player:
 #usage: Player = Player(health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects)
 
 class Zombie:
-	def __init__(zombie, health, strength, dexterity, intelligence, wisdom, resistances, immunities, effects, drops):
+	def __init__(zombie, health, attack, effects, loot):
+		self.hp = health
+        self.atk = attack
+        self.eff = effects
+        self.loot = loot
+        self.loot = []
 
-	def gain_item(player, item):
-		self.inv.append(item)
-	def gain_res(player, resist):
-		self.inv.append(resist)
-	def gain_imm(player, immune):
-		self.inv.append(immune)
-	def gain_effect(player, effect):
-		self.inv.append(effect)
-		
 
-#usage: dog = npc(hp, inv, str, dex, int, wis, cha, res, imm, effect)
+	def set_loot(zombie, item):
+		self.loot.append(item)
+
+class Item:
+    def __init__(item, damage, effects):
+		self.dmg = damage
+        self.eff = effects
 
 
 class Room:
-	def __init__(location, modifiers, effects, loot, zombies, resources):
+	def __init__(room, modifiers, effects, loot, zombies, resources):
 		self.mod = modifiers
 		self.eff = effects
 		self.loot = loot
 		self.zom = zombies
 		self.reso = resources
 
-class Loot_table:
-	def __init__(room, items):
-		
-
-
+class Map:
+    def __init__(map, xdistance, ydistance):
+        self.xdist = xdistance
+        self.ydist = ydistance
 #functions:
-
+def display_map:
+    display    
 #def store_user_input():
 
 #def output_info():
