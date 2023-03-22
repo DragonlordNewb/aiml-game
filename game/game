@@ -57,7 +57,9 @@ class Room:
 		self.zom = zombies
 		self.reso = resources
 
-#class loot_table
+class Loot_table:
+	def __init__(room, items):
+		
 
 
 #functions:
