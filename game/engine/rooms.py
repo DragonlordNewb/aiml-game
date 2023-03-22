@@ -1,3 +1,7 @@
+import blessed
+
+term = blessed.Terminal()
+
 class Game:
     def __init__(self, *rooms: list[object]) -> None:
         self.rooms = rooms
