@@ -33,11 +33,13 @@ class Player:
 class Zombie:
 	def __init__(zombie, health, attack, effects, loot):
 		self.hp = health
-        self.atk = attack
-        self.eff = effects
-        self.loot = loot
-        self.loot = []
-
+        	self.atk = attack
+        	self.eff = effects
+        	self.loot = loot
+        	self.loot = []
+	
+	def gain_effect(zombie, effect):
+		self.inv.append(effect)
 
 	def set_loot(zombie, item):
 		self.loot.append(item)
