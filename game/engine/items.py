@@ -30,9 +30,9 @@ class Melee_Weapon(Item):
     damage=0
     desc=""
 
-    def __init__(self, dmg, descr):
-        self.damage= (-1 * abs(dmg))
-        self.desc= descr
+    def __init__(self, damage, desc):
+        self.damage= (-1 * abs(damage))
+        self.desc= desc
     
     def use_item(self):
         return self.damage
@@ -47,10 +47,10 @@ class Range_Weapon(Item):
     max_range = 0
     current_range=0
 
-    def __init__(self, dmg, rango, descr):
-        self.damage= (-1 * abs(dmg))
-        self.desc= descr
-        self.max_range=rango
+    def __init__(self, damage, range, desc):
+        self.damage= (-1 * abs(damage))
+        self.desc= desc
+        self.max_range=range
     
     def find_range(self, range):
         self.current_range=range
@@ -71,7 +71,7 @@ class Range_Weapon(Item):
 class Potion(Item):
     health_gain=0
     
-    def __init__(self, hG):
-        self.health_gain=abs(hG)
+    def __init__(self, health_gain):
+        self.health_gain=abs(health_gain)
     def use_item(self):
         return self.health_gain
