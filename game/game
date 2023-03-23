@@ -32,7 +32,7 @@ class Player:
         self.inv.append(effect)
 		
 
-#usage: Player = Player(health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects)
+#usage: Player = Player(health, experience, inventory, strength, dexterity, resistances, immunities, effects)
 
 class Zombie:
 	def __init__(zombie, health, attack, effects, loot):
