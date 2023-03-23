@@ -66,7 +66,7 @@ class Range_Weapon(Item):
         return self.desc
 
     def get_range(self):
-        return self.rango
+        return self.current_range
 
 class Potion(Item):
     health_gain=0
