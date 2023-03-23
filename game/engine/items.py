@@ -25,7 +25,8 @@ class Item:
 
     def __isub__(self, n: int) -> object:
         return type(self)(self.name, quantity - n)
-    class Melee_Weapon(Item):
+
+class Melee_Weapon(Item):
     damage=0
     desc=""
 
