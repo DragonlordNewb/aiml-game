@@ -1,3 +1,7 @@
+# THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS ECLIPSE
+# PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION
+# OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGGREMENT.
+
 #imports
 import engine, math, random
 
@@ -24,29 +28,27 @@ class Player:
 		self.inv.append(resist)
 	def gain_imm(char, immune):
 		self.inv.append(immune)
-	def gain_effect(char, effect):
-		self.inv.append(effect)
+    def gain_effect(char, effect):
+        self.inv.append(effect)
 		
 
 #usage: Player = Player(health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects)
 
 class Zombie:
 	def __init__(zombie, health, attack, effects, loot):
-		self.hp = health
-        	self.atk = attack
-        	self.eff = effects
-        	self.loot = loot
-        	self.loot = []
-	
-	def gain_effect(zombie, effect):
-		self.inv.append(effect)
+        self.hp = health
+        self.atk = attack
+        self.eff = effects
+        self.loot = loot
+        self.loot = []
+
 
 	def set_loot(zombie, item):
-		self.loot.append(item)
+        self.loot.append(item)
 
 class Item:
     def __init__(item, damage, effects):
-		self.dmg = damage
+        self.dmg = damage
         self.eff = effects
 
 
@@ -59,12 +61,15 @@ class Room:
 		self.reso = resources
 
 class Map:
-    def __init__(map, xdistance, ydistance):
+    def __init__(map, xdistance, ydistance, layout):
         self.xdist = xdistance
         self.ydist = ydistance
+        self.layout = layout
+        self.layout = []
 #functions:
-def display_map:
-    display    
+def display_current_map():
+
+
 #def store_user_input():
 
 #def output_info():
