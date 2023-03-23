@@ -1,6 +1,6 @@
 #RoomDatabase.py
 import random
-#import game
+from game import main_game
 #roomdatabase
 Room_list = ['Cabins','Kitchen','Pool','Fitnesscenter','Casino','Smokingarea','shoppingcenter','Captainsroom']
 
