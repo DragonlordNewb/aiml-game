@@ -8,7 +8,7 @@ import engine, math, random, room_Database
 rooms = []
 xdist = 0
 ydist = 0
-center = [[##  ##]\n[##  ##]\n[      ]\n[      ]\n[##  ##]\n[##  ##]]
+center = [["##  ##"],["##  ##"],[      ],[      ],["##  ##"],["##  ##"]]
 
 #classes:
 class Player:
@@ -75,9 +75,10 @@ class Map:
 		rooms.append(self)
 #functions:
 def display_current_map():
-	for i in len(range(rooms)):
-		if rooms[i].xdist = xdist and rooms[i].ydist = ydist:
-			print(rooms[i].layout)
+	for i in range(len(rooms)):
+		if rooms[i].xdist == xdist and rooms[i].ydist == ydist:
+			for j in range(len(rooms)):
+			    print(rooms[i].layout)
 
 
 #def store_user_input():
