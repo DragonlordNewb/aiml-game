@@ -1,12 +1,12 @@
 from game import data
 
 class Item:
-    def __init__(self, name, quantity: int=1) -> None:
+    def __init__(self, name, description, quantity: int=1) -> None:
         self.name = name
         self.quantity = quantity
-        self.desc="Description: your mother"
+        self.description=description
     def get_desc(self):
-        return self.desc
+        return self.description
     def use_item(self):
         return 0
     
@@ -26,30 +26,31 @@ class Item:
     def __isub__(self, n: int) -> object:
         return type(self)(self.name, quantity - n)
 
+    
 class Melee_Weapon(Item):
     damage=0
-    desc=""
+    description=""
 
-    def __init__(self, damage, desc):
+    def __init__(self, damage, description):
         self.damage= (-1 * abs(damage))
-        self.desc= desc
+        self.description= description
     
     def use_item(self):
         return self.damage
 
     def give_desc(self):
-        return self.desc
+        return self.description
 
 
 class Range_Weapon(Item):
     damage=0
-    desc=""
+    description=""
     max_range = 0
     current_range=0
 
-    def __init__(self, damage, range, desc):
+    def __init__(self, damage, range, description):
         self.damage= (-1 * abs(damage))
-        self.desc= desc
+        self.description= description
         self.max_range=range
     
     def find_range(self, range):
@@ -63,7 +64,7 @@ class Range_Weapon(Item):
             return 0
 
     def give_desc(self):
-        return self.desc
+        return self.description
 
     def get_range(self):
         return self.current_range
@@ -75,3 +76,13 @@ class Potion(Item):
         self.health_gain=abs(health_gain)
     def use_item(self):
         return self.health_gain
+
+
+class Armor(Item):
+    defense=0
+    
+    def __init__(self, defense):
+        self.defense = defense
+   
+    def get_defense(self):
+        return self.defense
