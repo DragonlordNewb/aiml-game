@@ -39,12 +39,13 @@ class Player:
 #usage: Player = Player(health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects)
 
 class Zombie:
-	def __init__(self, health, attack, effects, loot):
-		self.hp = health
-		self.atk = attack
-		self.eff = effects
-		self.loot = loot
-		self.loot = []
+	def __init__(zombie, health, attack, effects, loot):
+		zombie.hp = health
+		zombie.atk = attack
+		zombie.eff = effects
+		zombie.loot = loot
+		zombie.eff = []
+		zombie.loot = []
 
 
 	def set_loot(self, item):
