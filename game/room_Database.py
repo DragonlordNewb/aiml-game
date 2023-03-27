@@ -45,7 +45,7 @@ def room_selection(side):
 def userinput(User_input):
     global Current_room_old
     #add NLP
-    Current_room_old = Room_east
+    Current_room_old = Current_room
     print(Current_room_old)
     if User_input == "east":
         room_selection(Room_east)
@@ -54,7 +54,7 @@ def userinput(User_input):
 def oldRoom(user_input):
     global Current_room_old
     if user_input == 'east':
-        Current_room_old = Room_south
+        Room_south = Current_room_old
         print(Room_south)
 
 
