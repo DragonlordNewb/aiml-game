@@ -29,7 +29,6 @@ class Item:
     
 class Melee_Weapon(Item):
     damage=0
-    description=""
 
     def __init__(self, damage, description):
         self.damage= (-1 * abs(damage))
@@ -38,13 +37,9 @@ class Melee_Weapon(Item):
     def use_item(self):
         return self.damage
 
-    def give_desc(self):
-        return self.description
-
 
 class Range_Weapon(Item):
     damage=0
-    description=""
     max_range = 0
     current_range=0
 
@@ -63,11 +58,25 @@ class Range_Weapon(Item):
             print("out of range bozo kys")
             return 0
 
-    def give_desc(self):
-        return self.description
-
     def get_range(self):
         return self.current_range
+
+
+class Bludgeoning_Weapon(Item):
+    damage = 0
+    #blugeoning should be a decimal, never more than 1
+    bludgeoning=0
+    
+    def __init__(self, damage, bludgeoning, description):
+        self.damage = (-1 * abs(damage))
+        self.bludgeoning = bludgeoning
+        self.description=description
+   
+    def get_bludgeoning(self):
+        return self.bludgeoning
+
+    def use_item(self):
+        return self.damage
 
 class Potion(Item):
     health_gain=0
@@ -79,6 +88,7 @@ class Potion(Item):
 
 
 class Armor(Item):
+    #defense should be a decimal, never more than 1
     defense=0
     
     def __init__(self, defense):
