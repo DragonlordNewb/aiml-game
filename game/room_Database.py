@@ -11,7 +11,9 @@ def Roomshuffle():
 Roomshuffle()
 
 #RoomVars
-Current_room = Room_list[0]
+#Current room is the room the user is in currently
+Current_room = Room_list[0] 
+#rooms east through west store the rooms in that position compares to the user's position 
 Room_north = Room_list[1]
 Room_east = Room_list[2]
 Room_south = Room_list[3]
