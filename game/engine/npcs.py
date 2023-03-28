@@ -12,7 +12,7 @@ class Npc:
         self.dead = dead
         dead = False
     
-    def take_damage(self, health, taken_damage, dead)
+    def take_damage(self, health, taken_damage, dead):
         health = health-taken_damage
         if health == 0:
             dead = True
