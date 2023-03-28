@@ -3,7 +3,7 @@ import random
 #roomdatabase
 #from game import main_game
 #import NLP_database
-Room_list = ['Cabins','Kitchen','Pool','Fitnesscenter','Casino','Smokingarea','shoppingcenter','Captainsroom']
+Room_list = ['Cabins','Kitchen','Pool','Fitnesscenter','Casino','Smokingarea','shoppingcenter','Captainsroom','The Bridge']
 
 #RoomSuffle system
 def Roomshuffle():
@@ -64,6 +64,10 @@ while hp > 0:
 
     def oldRoom(user_input):
         global Current_room_old
+        global Room_north
+        global Room_east
+        global Room_south
+        global Room_west
         if user_input == 'east':
             Room_west = Current_room_old
             print("You're in",Current_room)
@@ -95,7 +99,7 @@ while hp > 0:
 
     userinput(Player_res)
 
-#tests remove later
+
 
 
 
