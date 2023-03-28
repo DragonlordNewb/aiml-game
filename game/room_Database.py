@@ -40,11 +40,12 @@ while hp > 0:
     def room_selection(side):
         global Current_room
         Current_room = side
+        hp-1
         oldRoom(Player_res)
         
 
     
-    #Add NLP ai Remove later
+    #!!!!Once NLP is Done Repace this to fit NLP system!!!!
     def userinput(User_input):
         global Current_room_old
         #add NLP
@@ -99,7 +100,7 @@ while hp > 0:
 
     userinput(Player_res)
 
-
+    
 
 
 
