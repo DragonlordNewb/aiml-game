@@ -4,11 +4,18 @@ import random
 #from game import main_game
 #import NLP_database
 Room_list = ['Cabins','Kitchen','Pool','Fitnesscenter','Casino','Smokingarea','shoppingcenter','Captainsroom','The Bridge']
-
+Room_map = []
 #RoomSuffle system
-def Roomshuffle():
-    random.shuffle(Room_list)
-Roomshuffle()
+
+Room_num = random.randint(0,9)
+
+
+
+def Room_mapCr(num):
+    Roomapper = Room_list.pop(num)
+    print(Roomapper)
+Room_mapCr(Room_num)    
+
 
 #RoomVars
 #Current room is the room the user is in currently
@@ -60,6 +67,14 @@ while hp > 0:
         elif User_input == "north":
             room_selection(Room_north)
 
+    def printTest():
+        print('')
+        print("You're in",Current_room)
+        print("north-",Room_north)
+        print("east-",Room_east)
+        print("south-",Room_south)
+        print("west-",Room_west)
+
 
 
 
@@ -71,37 +86,20 @@ while hp > 0:
         global Room_west
         if user_input == 'east':
             Room_west = Current_room_old
-            print("You're in",Current_room)
-            print("north-",Room_north)
-            print("east-",Room_east)
-            print("south-",Room_south)
-            print("west-",Room_west)
+            printTest()
         elif user_input == 'west':
             Room_east = Current_room_old
-            print("You're in",Current_room)
-            print("north-",Room_north)
-            print("east-",Room_east)
-            print("south-",Room_south)
-            print("west-",Room_west)
+            printTest()
         elif user_input == 'north':
             Room_south = Current_room_old
-            print("You're in",Current_room)
-            print("north-",Room_north)
-            print("east-",Room_east)
-            print("south-",Room_south)
-            print("west-",Room_west)
+            printTest()
         elif user_input == 'south':
             Room_north = Current_room_old
-            print("You're in",Current_room)
-            print("north-",Room_north)
-            print("east-",Room_east)
-            print("south-",Room_south)
-            print("west-",Room_west)
+            printTest()
 
     userinput(Player_res)
 
     
-
 
 
 #replace/remove later
