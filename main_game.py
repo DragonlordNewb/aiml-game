@@ -3,13 +3,14 @@
 # OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGGREMENT.
 
 #imports
-import math, random, room_Database, engine
+import math, random
+#, room_Database, engine
 rooms = ['cabins', 'kitchen', 'pool', 'fitness center', 'casino', 'smoking area', 'shopping center', 'the bridge']
 xdist = 0
 ydist = 0
 layout = [['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-']]
-layout[3][3] = 'shopping center'
-layout[5][3] = 'the bridge'
+layout[2][2] = 'shopping center'
+layout[4][2] = 'the bridge'
 
 #classes:
 class Player:
@@ -65,7 +66,7 @@ class Room:
 		self.zom = zombies
 		self.reso = resources
 
-class Map:
+class ship:
 	def __init__(self, xdistance, ydistance, map, flavortext):
 		self.xdist = xdistance
 		self.ydist = ydistance
@@ -77,8 +78,8 @@ class Map:
 #functions:
 def display_current_map():
 	global xdist
-	globa ydist
-	print(map[ydist][xdist]
+	global ydist
+	print(layout[ydist][xdist])
 
 
 #def store_user_input():
@@ -89,8 +90,18 @@ def display_current_map():
 
 
 #variables
+for i in range(5):
+    layout[random.randint(0,len(layout))][random.randint(0,len(layout))] = 
+
+for i in range(len(layout)):
+    for j in range(len(layout[i])):
+        if layout[i][j] == '-':
+            layout[i][j] = 'cabin'
+        
 
 while 1:
-	display_current_map():
+	display_current_map()
+	for i in range(len(layout)):
+	    print(layout[i])
 	ydist = int(input('y'))
 	xdist = int(input('x'))
