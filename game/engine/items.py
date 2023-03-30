@@ -78,7 +78,17 @@ class Bludgeoning_Weapon(Item):
     def use_item(self):
         return self.damage
 
-class Potion(Item):
+class Energy_Drink(Item):
+    speed_boost=0
+    
+    def __init__(self, speed_boost):
+        self.speed_boost=speed_boost
+
+    def use_item(self):
+        return self.speed_boost
+
+        
+class Iced_Tea(Item):
     health_gain=0
     
     def __init__(self, health_gain):
@@ -87,11 +97,34 @@ class Potion(Item):
         return self.health_gain
 
 
+class Pre_Workout(Item):
+    dmg_boost=0
+    
+    def __init__(self, dmg_boost):
+        self.dmg_boost=abs(dmg_boost)
+
+    def use_item(self):
+        return self.dmg_boost
+
+
+class Budget_Steriods(Item):
+    health_gain=0
+    dmg_boost =0
+    
+    def __init__(self, health_gain=0, speed_boost=0, dmg_boost=0):
+        self.health_gain-=health_gain
+    def use_item(self):
+        return self.health_gain
+    
+
+
+
 class Armor(Item):
-    #defense should be a decimal, never more than 1
+    #defense should always be a decimal value
     defense=0
     
     def __init__(self, defense):
+    
         self.defense = defense
    
     def get_defense(self):
