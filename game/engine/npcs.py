@@ -1,5 +1,6 @@
 import random
 
+
 class Npc:
     def __init__(self, type, name, description, damage, defense, health, taken_damage, dead, current_enemy):
         self.name = name
@@ -22,13 +23,17 @@ class Npc:
 
 
 class Random(Npc):
-    actions = []
+    #actions is a list of all possible actions that the random npc can do
+    actions = pass
 
     def __init__(self, actions):
         self.actions = actions
     
     def take_action(self, actions):
         action = actions[random.randint(0,len(actions))-1]
+
+
+#the rest is WIP and depends on the actual AI being done
 
 class SearchTree(Npc):
     pass
