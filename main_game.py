@@ -3,12 +3,13 @@
 # OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGGREMENT.
 
 #imports
-import math, random, room_Database
-#engine, room_Database,
-rooms = []
+import math, random, room_Database, engine
+rooms = ['cabins', 'kitchen', 'pool', 'fitness center', 'casino', 'smoking area', 'shopping center', 'the bridge']
 xdist = 0
 ydist = 0
-center = [[00  00],[00  00][      ],[      ],[00  00],[00  00]]
+layout = [['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-']]
+layout[3][3] = 'shopping center'
+layout[5][3] = 'the bridge'
 
 #classes:
 class Player:
@@ -65,11 +66,13 @@ class Room:
 		self.reso = resources
 
 class Map:
-	def __init__(self, xdistance, ydistance, layout):
+	def __init__(self, xdistance, ydistance, map, flavortext):
 		self.xdist = xdistance
 		self.ydist = ydistance
-		self.layout = layout
-		self.layout = []
+		self.map = map
+		self.flav = flavortext
+		self.map = []
+		self.flav = []
 
 	def add_room(self):
 		rooms.append(self)
