@@ -19,10 +19,7 @@ class Npc:
     
     def deal_damage(self, damage, enemy):
         enemy.health = enemy.health - damage
-        
 
-
-  
 
 class Random(Npc):
     actions = []
@@ -34,3 +31,7 @@ class Random(Npc):
         action = actions[random.randint(0,len(actions))-1]
 
 class SearchTree(Npc):
+    pass
+
+class Depth(Npc):
+    pass
