@@ -5,12 +5,13 @@
 #imports
 import math, random
 #, room_Database, engine
-rooms = ['cabins', 'kitchen', 'pool', 'fitness center', 'casino', 'smoking area', 'shopping center', 'the bridge']
+#rooms = ['cabins', 'kitchen', 'pool', 'fitness center', 'casino', 'smoking area', 'shopping center', 'the bridge']
+rooms = ['C', 'k', 'p', 'f', 'c', 's', 'S', 'B']
 xdist = 0
 ydist = 0
 layout = [['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-']]
-layout[2][2] = 'shopping center'
-layout[4][2] = 'the bridge'
+layout[2][2] = 'S'
+layout[4][2] = 'B'
 
 #classes:
 class Player:
@@ -91,12 +92,12 @@ def display_current_map():
 
 #variables
 for i in range(5):
-    layout[random.randint(0,len(layout))][random.randint(0,len(layout))] = 
+    layout[random.randint(0,len(layout)-1)][random.randint(0,len(layout)-1)] = rooms.pop(1)
 
 for i in range(len(layout)):
     for j in range(len(layout[i])):
         if layout[i][j] == '-':
-            layout[i][j] = 'cabin'
+            layout[i][j] = 'C'
         
 
 while 1:
