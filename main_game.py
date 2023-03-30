@@ -74,14 +74,11 @@ class Map:
 		self.map = []
 		self.flav = []
 
-	def add_room(self):
-		rooms.append(self)
 #functions:
 def display_current_map():
-	for i in len(range(rooms)):
-		if rooms[i].xdist = xdist and rooms[i].ydist = ydist:
-			for len(range(rooms)):
-            	print(rooms[i].layout)
+	global xdist
+	globa ydist
+	print(map[ydist][xdist]
 
 
 #def store_user_input():
@@ -91,7 +88,9 @@ def display_current_map():
 #def combat():
 
 
-#variables:
+#variables
 
-center = map(0, 0, center)
-display_current_map():
+while 1:
+	display_current_map():
+	ydist = int(input('y'))
+	xdist = int(input('x'))
