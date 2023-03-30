@@ -3,12 +3,12 @@
 # OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGGREMENT.
 
 #imports
-import engine, math, random, room_Database
-
+import math, random, room_Database
+#engine, room_Database,
 rooms = []
 xdist = 0
 ydist = 0
-center = [[##  ##]\n[##  ##]\n[      ]\n[      ]\n[##  ##]\n[##  ##]]
+center = [[00  00],[00  00][      ],[      ],[00  00],[00  00]]
 
 #classes:
 class Player:
@@ -39,13 +39,12 @@ class Player:
 #usage: Player = Player(health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects)
 
 class Zombie:
-	def __init__(zombie, health, attack, effects, loot):
-		zombie.hp = health
-		zombie.atk = attack
-		zombie.eff = effects
-		zombie.loot = loot
-		zombie.eff = []
-		zombie.loot = []
+	def __init__(self, health, attack, effects, loot):
+		self.hp = health
+		self.atk = attack
+		self.eff = effects
+		self.loot = loot
+		self.loot = []
 
 
 	def set_loot(self, item):
@@ -78,7 +77,8 @@ class Map:
 def display_current_map():
 	for i in len(range(rooms)):
 		if rooms[i].xdist = xdist and rooms[i].ydist = ydist:
-			print(rooms[i].layout)
+			for len(range(rooms)):
+            	print(rooms[i].layout)
 
 
 #def store_user_input():
@@ -91,3 +91,4 @@ def display_current_map():
 #variables:
 
 center = map(0, 0, center)
+display_current_map():
