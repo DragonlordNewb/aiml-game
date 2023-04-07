@@ -3,6 +3,12 @@ import random
 #roomdatabase
 #from game import main_game
 #import NLP_database
+
+#Moved system into Game.py This system will set the layout of each room allways diffrent will try imports and will build off this.
+#help
+
+
+
 Room_list = ['Cabins','Kitchen','Pool','Fitnesscenter','Casino','Smokingarea','shoppingcenter','Captainsroom','The Bridge']
 temp_list = Room_list
 Room_map = [['','',''],['','',''],['','','']]
