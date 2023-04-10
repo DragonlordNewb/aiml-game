@@ -6,12 +6,10 @@
 import math, random
 #, room_Database, engine
 #rooms = ['cabins', 'kitchen', 'pool', 'fitness center', 'casino', 'smoking area', 'shopping center', 'the bridge']
-rooms = ['C', 'k', 'p', 'f', 'c', 's', 'S', 'B']
+rooms = ['🛏', '🍳', '🏊', '🏋', '⛁', '🚬', '🛍', '🚢']
 xdist = 0
 ydist = 0
 layout = [['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-']]
-layout[2][2] = 'S'
-layout[4][2] = 'B'
 
 #classes:
 class Player:
@@ -91,13 +89,18 @@ def display_current_map():
 
 
 #variables
+layout[4][2] = rooms.pop(-1)
+layout[2][2] = rooms.pop(-1)
+
 for i in range(5):
-    layout[random.randint(0,len(layout)-1)][random.randint(0,len(layout)-1)] = rooms.pop(1)
+	(y, x) = (random.randint(0,len(layout)-1), random.randint(0,len(layout)-1))
+	if (y, x) != (2, 2) and (4, 2):
+		layout[y][x] = rooms.pop(1)
 
 for i in range(len(layout)):
     for j in range(len(layout[i])):
         if layout[i][j] == '-':
-            layout[i][j] = 'C'
+            layout[i][j] = rooms[0]
         
 
 while 1:
