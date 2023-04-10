@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, Iterable
 import warnings
 
 Number = Union[int, float]
@@ -24,6 +24,9 @@ class Minnow:
         self.lastInput = None
         self.lastOutput = None
 
+    def __repr__(self) -> str:
+        return "<Minnow length=" + str(len(self)) + " threshold=" + str(self.threshold) + " alpha=" + str(self.alpha) + ">"
+
     def __len__(self) -> int:
         return self.length
 
@@ -32,6 +35,9 @@ class Minnow:
 
     def __getitem__(self, index: int) -> Number:
         return self.weights[index]
+    
+    def __setitem__(self, index: int, value: Number) -> None:
+        self.weights[index] = value
 
     def _getIndices(self, threshold: Number) -> list[int]:
         return [index for index, value in enumerate(self) if value >= threshold]
@@ -56,3 +62,12 @@ class Minnow:
             indices = self._getIndices(mean)
             for index in indices:
                 self[index] *= self.alpha
+
+# pathfinding for some reason
+
+def lev(a: str, b: str) -> int:
+    if len(b) == 0:
+        return len(a)
+    if len(a) == 0:
+        return len(b)
+    

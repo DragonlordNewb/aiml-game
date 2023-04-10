@@ -20,7 +20,7 @@ class Game:
             currentRoom = self.room.next()
 
 class Room:
-    def __init__(self, ident: str, mappings: dict[str: str], description: str) -> None:
+    def __init__(self, ident: str, mappings: dict[str: str], description: str, items) -> None:
         self.description = description
         self.items = items
         self.ident = ident

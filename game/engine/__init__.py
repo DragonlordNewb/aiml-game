@@ -1,1 +1,1 @@
-from game.engine import ai, rooms, items
+from engine import ai, rooms, items
