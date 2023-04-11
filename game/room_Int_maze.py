@@ -14,8 +14,6 @@ temp_list = Room_list
 Room_map = [['','',''],['','',''],['','','']]
 #RoomSuffle system
 
-
-
 def Room_maper():
     global Room_map
     global temp_list
@@ -40,7 +38,6 @@ Player_res = ''
 hp = 3
 
 
-
 def startout_sides():
     global Room_map
     global Current_room
@@ -53,8 +50,6 @@ def startout_sides():
     Room_east = Room_map[1][2]
     Room_south = Room_map[2][1]
     Room_west = Room_map[1][0]
-
-
 
 startout_sides()
 
@@ -76,8 +71,6 @@ while hp > 0:
         Current_room = side
         hp-1
         oldRoom(Player_res)
-        
-
     
     #!!!!Once NLP is Done Repace this to fit NLP system!!!!
     def userinput(User_input):
@@ -102,9 +95,6 @@ while hp > 0:
         print("south-",Room_south)
         print("west-",Room_west)
 
-
-
-
     def oldRoom(user_input):
         global Current_room_old
         global Room_north
@@ -125,9 +115,6 @@ while hp > 0:
             printTest()
 
     userinput(Player_res)
-
-    
-
 
 #replace/remove later
     if hp == 0:
