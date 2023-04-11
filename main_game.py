@@ -1,15 +1,14 @@
-# THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS ECLIPSE
-# PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION
-# OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGGREMENT.
 
 #imports
 import math, random
 #, room_Database, engine
-#rooms = ['cabins', 'kitchen', 'pool', 'fitness center', 'casino', 'smoking area', 'shopping center', 'the bridge']
-rooms = ['🛏', '🍳', '🏊', '🏋', '⛁', '🚬', '🛍', '🚢']
+#rooms = ['cabins', 'kitchen', 'pool', 'fitness center', 'casino', 'smoking area', 'shopping center', 'the bridge',start]
+rooms = ['C', 'k', 'p', 'f', 'c', 's', 'S', 'B','⌂']
 xdist = 0
 ydist = 0
 layout = [['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-']]
+layout[2][2] = 'S'
+layout[4][2] = 'B'
 
 #classes:
 class Player:
@@ -80,6 +79,50 @@ def display_current_map():
 	global ydist
 	print(layout[ydist][xdist])
 
+def connect(x,y,loop):
+	xstart = x
+	ystart = y
+	while loop >=1:	
+		try:
+			place = random.randint(1,4)
+			if place == 1:
+				y-=1
+				if layout[x][y] == "-":
+					layout[x][y] = "C"
+			if place == 2:
+				x-=1
+				if layout[x][y] == "-":
+					layout[x][y] = "C"
+			if place == 3:
+				x+=1
+				if layout[x][y] == "-":
+					layout[x][y] = "C"
+					
+			else:
+				y+=1
+				if layout[x][y] == "-":
+					layout[x][y] = "C"
+			loop-=1
+		except:
+			print("restart")
+			x = xstart
+			y = ystart
+
+
+def map_generate():
+	xstart = 0
+	ystart = 0
+	layout[random.randint(1,3)][random.randint(1,3)] = '⌂'
+	
+	for i in range(len(layout)):
+		for j in range(len(layout[i])):
+			if layout[i][j] == '⌂':
+				xstart = i
+				ystart = j
+	connect(xstart,ystart,10)
+	
+	
+
 
 #def store_user_input():
 
@@ -88,24 +131,26 @@ def display_current_map():
 #def combat():
 
 
-#variables
-layout[4][2] = rooms.pop(-1)
-layout[2][2] = rooms.pop(-1)
+			
 
+
+#variables
 for i in range(5):
-	(y, x) = (random.randint(0,len(layout)-1), random.randint(0,len(layout)-1))
-	if (y, x) != (2, 2) and (4, 2):
-		layout[y][x] = rooms.pop(1)
+    layout[random.randint(0,len(layout)-1)][random.randint(0,len(layout)-1)] = rooms.pop(1)
 
 for i in range(len(layout)):
-    for j in range(len(layout[i])):
-        if layout[i][j] == '-':
-            layout[i][j] = rooms[0]
+	for j in range(len(layout[i])):
+		if layout[i][j] == '-':
+			place = random.randint(0,1)
+			if place == 1:
+				pass
+				#layout[i][j] = 'C'
         
 
 while 1:
+	map_generate()
 	display_current_map()
 	for i in range(len(layout)):
-	    print(layout[i])
+		print(layout[i])
 	ydist = int(input('y'))
 	xdist = int(input('x'))
