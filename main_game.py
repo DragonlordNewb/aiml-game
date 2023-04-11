@@ -1,14 +1,15 @@
+# THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS ECLIPSE
+# PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION
+# OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGGREMENT.
 
 #imports
 import math, random
 #, room_Database, engine
-#rooms = ['cabins', 'kitchen', 'pool', 'fitness center', 'casino', 'smoking area', 'shopping center', 'the bridge',start]
-rooms = ['C', 'k', 'p', 'f', 'c', 's', 'S', 'B','⌂']
+#rooms = ['cabins', 'kitchen', 'pool', 'fitness center', 'casino', 'smoking area', 'shopping center', 'the bridge']
+rooms = ['🛏', '🍳', '🏊', '🏋', '⛁', '🚬', '🛍', '🚢']
 xdist = 0
 ydist = 0
 layout = [['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-']]
-layout[2][2] = 'S'
-layout[4][2] = 'B'
 
 #classes:
 class Player:
@@ -131,26 +132,25 @@ def map_generate():
 #def combat():
 
 
-			
-
 
 #variables
+layout[4][2] = rooms.pop(-1)
+layout[2][2] = rooms.pop(-1)
+
 for i in range(5):
-    layout[random.randint(0,len(layout)-1)][random.randint(0,len(layout)-1)] = rooms.pop(1)
+	(y, x) = (random.randint(0,len(layout)-1), random.randint(0,len(layout)-1))
+	if (y, x) != (2, 2) and (4, 2):
+		layout[y][x] = rooms.pop(1)
 
 for i in range(len(layout)):
-	for j in range(len(layout[i])):
-		if layout[i][j] == '-':
-			place = random.randint(0,1)
-			if place == 1:
-				pass
-				#layout[i][j] = 'C'
+    for j in range(len(layout[i])):
+        if layout[i][j] == '-':
+            layout[i][j] = rooms[0]
         
 
 while 1:
-	map_generate()
 	display_current_map()
 	for i in range(len(layout)):
-		print(layout[i])
+	    print(layout[i])
 	ydist = int(input('y'))
 	xdist = int(input('x'))
