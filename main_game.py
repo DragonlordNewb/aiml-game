@@ -6,7 +6,7 @@
 import math, random
 #, room_Database, engine
 #rooms = ['cabins', 'kitchen', 'pool', 'fitness center', 'casino', 'smoking area', 'shopping center', 'the bridge']
-rooms = ['🛏', '🍳', '🏊', '🏋', '⛁', '🚬', '🛍', '🚢']
+rooms = ['🛏', '🍳', '🏊', '🏋', '⛁', '🚬', '🛍', '😈']
 xdist = 0
 ydist = 0
 layout = [['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-'],['-','-','-','-','-']]
