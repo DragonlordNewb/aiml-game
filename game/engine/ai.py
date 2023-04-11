@@ -15,7 +15,7 @@ class Minnow:
     """
     def __init__(self, length: int, threshold: Number, alpha: Number=2) -> None:
         if alpha <= 1:
-            warnings.warn("Alpha of 1 or less may yield abberant behavior in Winnow2 instance.")
+            warnings.warn("Alpha of 1 or less may yield abberant behavior in Minnow instance.")
 
         self.alpha = alpha
         self.length = length
