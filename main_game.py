@@ -139,8 +139,10 @@ layout[2][2] = rooms.pop(-1)
 
 for i in range(5):
 	(y, x) = (random.randint(0,len(layout)-1), random.randint(0,len(layout)-1))
-	if (y, x) != (2, 2) and (4, 2):
-		layout[y][x] = rooms.pop(1)
+	
+	while (y, x) == (2, 2) and (4, 2):
+		(y, x) = (random.randint(0,len(layout)-1), random.randint(0,len(layout)-1))	
+	layout[y][x] = rooms.pop(1)
 
 for i in range(len(layout)):
     for j in range(len(layout[i])):
