@@ -15,7 +15,7 @@ class Npc:
     
     def take_damage(self, health, taken_damage, dead):
         health = health-taken_damage
-        if health == 0:
+        if health <= 0:
             dead = True
     
     def deal_damage(self, damage, enemy):
