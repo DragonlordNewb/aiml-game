@@ -27,6 +27,7 @@ print(Room_map)
 #RoomVars
 #Current room is the room the user is in currently
 #test and old room system 
+Curr_pos = Room_map[1][1]
 player_faceing = ''
 Room_north = ''
 Room_east = ''
@@ -66,26 +67,46 @@ while hp > 0:
 #start of inputs test and the endless loop #chage to classes if possible?
     Player_res = input("Please select a side ")
 
-    def room_selection(side):
+    def room_selection(side,x,y):
         global Current_room
         Current_room = side
+        try:
+            side = Room_map[x][y]
+        except:
+            print("No room there")
         hp-1
-        oldRoom(Player_res)
+        #oldRoom(Player_res)
     
     #!!!!Once NLP is Done Repace this to fit NLP system!!!!
     def userinput(User_input):
         global Current_room_old
+        global Curr_pos
         #add NLP
         Current_room_old = Current_room
         ##print(Current_room_old)
         if User_input == "east":
-            room_selection(Room_east)
+            where_Room('east')
         elif User_input == "south":
-            room_selection(Room_south)
+            where_Room('east')
         elif User_input == "west":
-            room_selection(Room_west)
-        elif User_input == "north":
-            room_selection(Room_north)
+            where_Room('east')
+        elif User_input
+            where_Room('east')
+        
+        
+    def where_room():
+        work
+
+
+
+
+
+
+
+
+
+
+
 
     def printTest():
         print('')
