@@ -8,7 +8,7 @@ import random
 
 
 
-Room_list = ['Cabins','Kitchen','Pool','Fitnesscenter','Casino','Smokingarea','shoppingcenter','Captainsroom','The Bridge']
+Room_list = ['Cabins','Kitchen','Pool','Fitness center','Casino','Smoking area','shopping center','Captains room','The Bridge']
 temp_list = Room_list
 Room_map = [['','',''],['','',''],['','','']]
 #RoomSuffle system
@@ -98,7 +98,7 @@ while hp > 0:
         global Room_south
         global Room_west
         #add NLP
-        Current_room_old = Current_room
+        #Current_room_old = Current_room
         ##print(Current_room_old)
         y,x = find_room(Current_room)
         if User_input == "east":
@@ -109,28 +109,86 @@ while hp > 0:
             try:
                 Room_east = Room_map[y][x+2]
             except:
-                print("no room to the east ")    
+                Room_east = " No Room"   
             try:
                 Room_west = Room_map[y][x]
             except:
-                print("no room to the west ")
+                Room_west = " No Room"
             try:
-                Room_south = Room_map[y+1][x]
+                Room_south = Room_map[y+1][x+1]
             except:
-                print("no room to the south ")
+                Room_south = " No Room"
+            try:
+                Room_north = Room_map[y-1][x+1]
+            except:
+                Room_north = " No Room"
+            printTest()
+        elif User_input == "south":
+            try:
+                Current_room = Room_map[y+1][x]
+            except:
+                print("not valid room ")
+            try:
+                Room_east = Room_map[y+1][x+1]
+            except:
+                Room_east = " No Room"   
+            try:
+                Room_west = Room_map[y+1][x-1]
+            except:
+                Room_west = " No Room"
+            try:
+                Room_south = Room_map[y+2][x]
+            except:
+                Room_south = " No Room"
+            try:
+                Room_north = Room_map[y][x]
+            except:
+                Room_north = " No Room"
+            printTest()
+        elif User_input == "west":
+            try:
+                Current_room = Room_map[y][x-1]
+            except:
+                print("not valid room ")
+            try:
+                Room_east = Room_map[y][x]
+            except:
+                Room_east = " No Room"   
+            try:
+                Room_west = Room_map[y][x-2]
+            except:
+                Room_west = " No Room"
+            try:
+                Room_south = Room_map[y+1][x-1]
+            except:
+                Room_south = " No Room"
+            try:
+                Room_north = Room_map[y-1][x-1]
+            except:
+                Room_north = " No Room"
+            printTest()
+        elif User_input == "north":
+            try:
+                Current_room = Room_map[y-1][x]
+            except:
+                print("not valid room ")
+            try:
+                Room_east = Room_map[y-1][x+1]
+            except:
+                Room_east = " No Room"   
+            try:
+                Room_west = Room_map[y-1][x-1]
+            except:
+                Room_west = " No Room"
+            try:
+                Room_south = Room_map[y][x]
+            except:
+                Room_south = " No Room"
             try:
                 Room_north = Room_map[y-2][x]
             except:
-                print("no room to the north ")
-
-        
-            oldRoom('east')
-        elif User_input == "south":
-            pass
-        elif User_input == "west":
-            pass
-        elif User_input == "north":
-            pass
+                Room_north = " No Room"
+            printTest()
 
 
     def printTest():
@@ -141,26 +199,17 @@ while hp > 0:
         print("south-",Room_south)
         print("west-",Room_west)
 
-    def oldRoom(user_input):
-        global Current_room_old
-        global Room_north
-        global Room_east
-        global Room_south
-        global Room_west
-        if user_input == 'east':
-            Room_west = Current_room_old
-            printTest()
-        elif user_input == 'west':
-            Room_east = Current_room_old
-            printTest()
-        elif user_input == 'north':
-            Room_south = Current_room_old
-            printTest()
-        elif user_input == 'south':
-            Room_north = Current_room_old
-            printTest()
 
     Shift_room(Player_res)
+
+
+
+#luxs
+def searchKeywords(string: str, targets: list[str]) -> str:
+    for target in targets:
+        if target in string:
+            return target
+    return None
 
 #replace/remove later
     if hp == 0:
