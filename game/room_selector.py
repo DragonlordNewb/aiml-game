@@ -204,7 +204,7 @@ while hp > 0:
 
 
 
-#luxs
+#luxs thing for his room sys
 def searchKeywords(string: str, targets: list[str]) -> str:
     for target in targets:
         if target in string:
