@@ -2,4 +2,14 @@
 # PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION
 # OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGGREMENT.
 
-import x1
+#imports
+import ent from x1
+import rooms from engine
+
+name = input("enter name")
+
+#entities
+Player = Entity(
+	StringProperty("name", name),
+	ScalarProperty("health", 10)
+)
