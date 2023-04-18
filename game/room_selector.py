@@ -2,6 +2,7 @@
 import random
 #roomdatabase
 from game import main_game
+import x1
 #import NLP_database
 
 #Moved system into Game.py This system will be the input sytem with add NLP soon
