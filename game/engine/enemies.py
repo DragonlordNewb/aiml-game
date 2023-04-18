@@ -24,23 +24,23 @@ class Enemy:
     def take_damage(self, damage, bludgeon=0.0):
         ran_num=random.randint(1,100)
         if (ran_num>=self.miss_chance):
-            if (bludgeon < 0): 
+            if (bludgeon > 0.0): 
                 if bludgeon < self.armor:
-                    self.current_health -= int((1-self.armor + bludgeon) * damage)
+                    self.current_health -= ((1-self.armor + bludgeon) * damage)
                 elif bludgeon >= self.armor:
                     self.current_health -= damage
             else:
-                self.current_health -= damage
+                self.current_health -= damage * (1-self.armor)
         else:
             print("missed")
     
     def give_description(self, description):
         print(description)
 
-    def give_info(self, type, name, description, damage, max_health, current_health):
-        print(f"Name:        {name.title()}")
-        print(f"Type:        {type.title()}")
-        print(f"Description: {description}")
-        print(f"Damage:      {int(damage)}")
-        print(f"Max health:  {int(max_health)}")
-        print(f"Health:      {int(current_health)}")
+    def give_info(self):
+        print(f"Name:        {self.name.title()}")
+        print(f"Type:        {self.type.title()}")
+        print(f"Description: {self.description}")
+        print(f"Damage:      {int(self.damage)}")
+        print(f"Max health:  {int(self.max_health)}")
+        print(f"Current Health:  {float(self.current_health)}")
