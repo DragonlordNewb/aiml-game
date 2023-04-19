@@ -185,7 +185,7 @@ while hp > 0:
                 Room_south = Room_map[y][x]
             except:
                 Room_south = " No Room"
-           #None Of this works It goes in a loop need to fix before firday inorder to submit subitive
+           #None Of this works It goes in a loop need to fix before firday inorder to submit subitive hehe Im broken 
        
             try:
                 Room_north = Room_map[y-2][x]
