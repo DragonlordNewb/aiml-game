@@ -11,5 +11,6 @@ name = input("enter name")
 #entities
 Player = Entity(
 	StringProperty("name", name),
-	ScalarProperty("health", 10)
+	ScalarProperty("health", 10),
+	ScalarProperty("damage", 1)
 )
