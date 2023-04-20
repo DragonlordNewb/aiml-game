@@ -14,3 +14,7 @@ Player = Entity(
 	ScalarProperty("health", 10),
 	ScalarProperty("damage", 1)
 )
+Zombie = Entity(
+	ScalarProperty("health", 10),
+	ScalarProperty("damage", 1)
+)
