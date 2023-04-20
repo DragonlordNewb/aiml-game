@@ -18,3 +18,23 @@ Zombie = Entity(
 	ScalarProperty("health", 10),
 	ScalarProperty("damage", 1)
 )
+
+#rooms
+Game = Game("Bridge" : "Bridge",
+"Cabins" : "Cabins",
+"Kitchen" : "Kitchen",
+"Pool" : "Pool",
+"Fitness Center" : "Fitness Center",
+"Casino" : "Casino",
+"Smoking Area" : "Smoking Area",
+"Shopping center" : "Shopping center",
+"The Bridge" : "The Bridge,
+"Start" : "Start"
+)
+
+Rooms = Rooms()
+
+
+
+
+#i dont know what im doing
