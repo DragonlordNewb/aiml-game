@@ -9,9 +9,6 @@ healthspace = 30
 sheild = 100
 maxSheild = 100
 sheildSpace = 25
-bar = ''
-
-
 
 
 
@@ -28,23 +25,8 @@ def health_System():
     print((T.move_xy(0, 100) + bar))
     #print(T.move_xy(0,100)("              " + percent))
 health_System()
-
-
-
-def user_Input():
     
 
 
 
 
-def shild():
-    dashConvert2 = int(maxSheild/sheildSpace)            
-    currentDash2 = int(sheild/dashConvert2)              
-    remainingHealth2 = sheild - currentDash2      
-    healthDisplay2 = ' ' * currentDash2                 
-    remainingDisplay2 = ' ' * remainingHealth2             
-    percent1 = str(int((health/maxHealth)*100)) + "%"     
-    print(T.home + T.clear + T.move_y(T.height // 1))
-    print(T.on_blue(T.move_down(10)(healthDisplay2 + remainingDisplay2)))
-    print(("              " + percent1)) 
-#shild()           
