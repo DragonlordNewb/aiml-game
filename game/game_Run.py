@@ -4,7 +4,7 @@
 import blessed
 import time
 import keyboard
-from room_selector import Current_room
+#from room_selector import Current_room
 #import engine 
 #from engine import rooms
 #from save import health
@@ -17,7 +17,7 @@ maxSheild = 100
 sheildSpace = 25
 text_state = 0
 start_state = True
-
+Current_room = 'Cabins'
 
 
 def print_slow(text):
@@ -32,10 +32,12 @@ def print_slow(text):
 def room_selsction():
     global text_state
     if Current_room == 'Cabins' and text_state == 0:
+        print(T.move_xy(165,10)(T.bold('CABINS')))
         print_slow(T.move_xy(20,20)('“You poke your head out of the door very slowly, allowing the hallway running from the east to west to become visible. All of the other doors are shut and the silence is only broken by the security guard at the end of the east hallway quite a ways down. His head swinging back and forth in an agitated motion. He looks around the corner and immediately turns and tries to run. He trips and falls on his knees, stumbling to move forward. His hand goes to the pepper spray at his side and he fumbles with the grip. In a moment of particularly bad luck he drops it on the floor just out of his reach as a grotesque, limping… thing steps around the corner. It steps on the spray cracking it into uselessness and reaches for him. You pull the door closed and not a moment later hear the sudden scream of the security guard, then, silence. What would you like to do?”'))
         text_state = 1
-
+        
     elif text_state <= 1 and Current_room == 'Cabins':
+        print(T.move_xy(165,10)(T.bold('CABINS')))
         print(T.move_xy(20,20)('“You poke your head out of the door very slowly, allowing the hallway running from the east to west to become visible. All of the other doors are shut and the silence is only broken by the security guard at the end of the east hallway quite a ways down. His head swinging back and forth in an agitated motion. He looks around the corner and immediately turns and tries to run. He trips and falls on his knees, stumbling to move forward. His hand goes to the pepper spray at his side and he fumbles with the grip. In a moment of particularly bad luck he drops it on the floor just out of his reach as a grotesque, limping… thing steps around the corner. It steps on the spray cracking it into uselessness and reaches for him. You pull the door closed and not a moment later hear the sudden scream of the security guard, then, silence. What would you like to do?”'))
 
     elif Current_room == 'Kitchen' and text_state == 0:
