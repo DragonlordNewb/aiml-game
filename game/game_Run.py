@@ -1,6 +1,7 @@
 #Hello welocme to our AIML game for 2023 This is the main file you will use to do gui eveything else will be working though this i hope inordre to install please do "pip install blessed" 
 #into the terminal and please run this file though python launcher for best expncence. enjoy.
 #DOCS CAN BE FOUND IN GITHUB
+
 import blessed
 import time
 import keyboard
@@ -12,9 +13,9 @@ T = blessed.Terminal()
 health = 100    
 maxHealth = 100  
 healthspace = 30
-sheild = 100
-maxSheild = 100
-sheildSpace = 25
+health1 = 100    
+maxHealth1 = 100  
+healthspace1 = 30
 text_state = 0
 start_state = True
 #TEST sATEMENT
@@ -117,8 +118,16 @@ def health_System():
         remainingDisplay = ' ' * remainingHealth             
         percent = str(int((health/maxHealth)*100)) + "%" 
         bar = healthDisplay + remainingDisplay     
+        dashConvert1 = int(maxHealth1/healthspace1)            
+        currentDash1 = int(health1/dashConvert1)              
+        remainingHealth1 = healthspace1 - currentDash1      
+        healthDisplay1 = T.on_blue(' ') * currentDash1                 
+        remainingDisplay1 = ' ' * remainingHealth1             
+        percent1 = str(int((health1/maxHealth1)*100)) + "%" 
+        bar1 = healthDisplay1 + remainingDisplay1
         #print(T.on_green(T.move_xy(10, 10) + healthDisplay + remainingDisplay + T.clear_eol))
-        print((T.move_xy(0, 100) + bar))
+        print((T.move_xy(0, 98) + bar1))
+        print((T.move_xy(0,100))+ bar)
         print(T.move_xy(0,100)("              " + percent))
         room_selsction()
         time.sleep(1)
