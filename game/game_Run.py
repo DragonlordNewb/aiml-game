@@ -15,7 +15,7 @@ maxHealth = 100
 healthspace = 30
 health1 = 100    
 maxHealth1 = 100  
-healthspace1 = 30
+healthspace1 = 25
 text_state = 0
 start_state = True
 #TEST sATEMENT
@@ -127,6 +127,7 @@ def health_System():
         bar1 = healthDisplay1 + remainingDisplay1
         #print(T.on_green(T.move_xy(10, 10) + healthDisplay + remainingDisplay + T.clear_eol))
         print((T.move_xy(0, 98) + bar1))
+        print('')
         print((T.move_xy(0,100))+ bar)
         print(T.move_xy(0,100)("              " + percent))
         room_selsction()
