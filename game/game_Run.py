@@ -3,6 +3,8 @@
 #DOCS CAN BE FOUND IN GITHUB
 
 import blessed
+from pydub import AudioSegment
+from pydub.playback import play
 import time
 import keyboard
 from room_selector import Current_room
@@ -132,6 +134,7 @@ def health_System():
         print(T.move_xy(0,100)("              " + percent))
         room_selsction()
         time.sleep(1)
+        
         health -= 1
         print_slow(T.clear)
         
@@ -151,6 +154,8 @@ def start():
             inp = T.inkey()
         #print(T.move_down(2) + 'You pressed ' + T.bold(repr(inp)))
         #start_state = False
+        start_up = AudioSegment.from_file("P:/aiml-game-main (11)/aiml-game-main/game/Sounds/Start_up.wav")
+        play(start_up)
         porgram_start()
         break
 
