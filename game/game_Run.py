@@ -15,11 +15,12 @@ T = blessed.Terminal()
 health = 100    
 maxHealth = 100  
 healthspace = 30
-health1 = 100    
-maxHealth1 = 100  
+health1 = 50    
+maxHealth1 = 50  
 healthspace1 = 25
 text_state = 0
 start_state = True
+overall_health = 150
 #TEST sATEMENT
 #Current_room = 'Cabins'
 
@@ -102,15 +103,23 @@ def room_selsction():
 
 
 def update():
-    if health >= 100:
-        print(T.clear)
-        health_System
+    global health1
+    global health
+    if overall_health > 100:
+        health1 -= 1
+        #print(T.clear)
+        health_System()
+    elif overall_health <= 100:
+        health -= 1
+        #print(T.clear)
+        health_System()
+        
 
 
 
 #heath system
 def health_System():
-    global health
+    global overall_health
     print(T.clear)
     while T.inkey(timeout=0.02) != 'q':
         dashConvert = int(maxHealth/healthspace)            
@@ -133,10 +142,10 @@ def health_System():
         print((T.move_xy(0,100))+ bar)
         print(T.move_xy(0,100)("              " + percent))
         room_selsction()
-        time.sleep(1)
-        
-        health -= 1
-        print_slow(T.clear)
+        time.sleep(2)
+        overall_health -= 1
+        update()
+        #print_slow(T.clear)
         
 
 
@@ -155,8 +164,14 @@ def start():
         #print(T.move_down(2) + 'You pressed ' + T.bold(repr(inp)))
         #start_state = False
         start_up = AudioSegment.from_file("P:/aiml-game-main (11)/aiml-game-main/game/Sounds/Start_up.wav")
-        play(start_up)
-        porgram_start()
+        try:
+            play(start_up)
+        except:
+            print("//!!SOUND FILE ERROR!!//")
+            print("!!SOUND WILL NOT WORK PROPERLY!!")
+            print("Attempting to continue")
+            time.sleep(3)
+            porgram_start()
         break
 
 
