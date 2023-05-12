@@ -163,18 +163,52 @@ def start():
             inp = T.inkey()
         #print(T.move_down(2) + 'You pressed ' + T.bold(repr(inp)))
         #start_state = False
-        start_up = AudioSegment.from_file("P:/aiml-game-main (11)/aiml-game-main/game/Sounds/Start_up.wav")
-        try:
-            play(start_up)
-        except:
-            print("//!!SOUND FILE ERROR!!//")
-            print("!!SOUND WILL NOT WORK PROPERLY!!")
-            print("Attempting to continue")
-            time.sleep(3)
+        #start_up = AudioSegment.from_file("aiml-game-main\game\Maps\Sounds\Start_up.wav"
             porgram_start()
         break
-
-
-
-
 start()
+
+
+
+
+#broken stuff need to fix this is the map system
+n = "go"
+board = [['-','-','-'],
+        ['-','-','-'],
+        ['-','-','-']]
+def print_board():
+    for i in board:
+        for j in i:
+            print(j, end = "  ")
+        print()
+        n = 'go'
+        arrow_keys()
+
+def find_room():
+        global board
+        for i in range (3):
+            for j in range (3):
+                if board[i][j] == 'x':
+                    return (i,j)
+        return None
+
+
+
+def arrow_keys():
+    global n
+    y,x = find_room()
+    while n == "go":
+            #global player_pos
+        if keyboard.is_pressed("left arrow"):
+            try:
+                board[y][x+1] = 'x'
+                print(board)
+                #n = 'stop'
+                print_board()
+            except:
+                pass
+        elif keyboard.is_pressed("right arrow"):
+            print("worng???")
+            pass
+        continue
+arrow_keys()
