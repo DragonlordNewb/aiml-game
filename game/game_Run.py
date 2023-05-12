@@ -174,9 +174,10 @@ start()
 #broken stuff need to fix this is the map system
 n = "go"
 board = [['-','-','-'],
-        ['-','-','-'],
+        ['-','x','-'],
         ['-','-','-']]
 def print_board():
+    global n
     for i in board:
         for j in i:
             print(j, end = "  ")
@@ -201,9 +202,11 @@ def arrow_keys():
             #global player_pos
         if keyboard.is_pressed("left arrow"):
             try:
-                board[y][x+1] = 'x'
-                print(board)
-                #n = 'stop'
+                board[y][x-1] = 'x'
+                board[y][x] = '-'
+                #print(board0
+                n = 'stop'
+                
                 print_board()
             except:
                 pass
