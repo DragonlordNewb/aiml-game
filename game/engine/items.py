@@ -9,28 +9,17 @@ class Item:
         return self.description
     def use_item(self):
         return 0
+    #temp solution to bludgeoning problem
+    def get_bludgeoning(self):
+        return 0
+    def to_string(self):
+        return self.name
     
-    def __str__(self) -> str:
-        if self.quantity == 1:
-            if self.name[0] in data.VOWELS:
-                return "an " + str(self.name)
-            return "a " + str(self.name)
-        return str(self.quantity) + " " + self.name + "s"
-
-    def __repr__(self) -> str:
-        return str(self)
-
-    def __iadd__(self, n: int) -> object:
-        return type(self)(self.name, quantity + n)
-
-    def __isub__(self, n: int) -> object:
-        return type(self)(self.name, quantity - n)
-
-    
+   
 class Melee_Weapon(Item):
-    damage=0
-
-    def __init__(self, damage, description):
+    def __init__(self, name, damage, description, quantity: int=1):
+        self.name = name
+        self.quantity = quantity
         self.damage= (-1 * abs(damage))
         self.description= description
     
@@ -43,7 +32,8 @@ class Range_Weapon(Item):
     max_range = 0
     current_range=0
 
-    def __init__(self, damage, range, description):
+    def __init__(self, name, damage, range, description):
+        self.name=name
         self.damage= (-1 * abs(damage))
         self.description= description
         self.max_range=range
@@ -67,7 +57,8 @@ class Bludgeoning_Weapon(Item):
     #blugeoning should be a decimal, never more than 1
     bludgeoning=0
     
-    def __init__(self, damage, bludgeoning, description):
+    def __init__(self, name, damage, bludgeoning, description):
+        self.name=name
         self.damage = (-1 * abs(damage))
         self.bludgeoning = bludgeoning
         self.description=description
