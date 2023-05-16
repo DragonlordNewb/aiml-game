@@ -1,6 +1,7 @@
 #Hello welocme to our AIML game for 2023 This is the main file you will use to do gui eveything else will be working though this i hope inordre to install please do "pip install blessed" 
 #into the terminal and please run this file though python launcher for best expncence. enjoy.
 #DOCS CAN BE FOUND IN GITHUB
+#if you have a version room_Selector that has userinputs it will not work and fail so please make sure your files are up to date 
 
 import blessed
 from pydub import AudioSegment
