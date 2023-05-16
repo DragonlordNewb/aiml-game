@@ -23,6 +23,9 @@ start_state = True
 overall_health = 150
 #TEST sATEMENT
 #Current_room = 'Cabins'
+board = [['-','-','-'],
+        ['-','x','-'],
+        ['-','-','-']]
 
 
 def print_slow(text):
@@ -41,7 +44,7 @@ def room_selsction():
         print_slow(T.move_xy(20,20)('“You poke your head out of the door very slowly, allowing the hallway running from the east to west to become visible. All of the other doors are shut and the silence is only broken by the security guard at the end of the east hallway quite a ways down. His head swinging back and forth in an agitated motion. He looks around the corner and immediately turns and tries to run. He trips and falls on his knees, stumbling to move forward. His hand goes to the pepper spray at his side and he fumbles with the grip. In a moment of particularly bad luck he drops it on the floor just out of his reach as a grotesque, limping… thing steps around the corner. It steps on the spray cracking it into uselessness and reaches for him. You pull the door closed and not a moment later hear the sudden scream of the security guard, then, silence. What would you like to do?”'))
         text_state = 1
         
-    elif text_state <= 1 and Current_room == 'Cabins':
+    elif Current_room == 'Cabins' and text_state == 1:
         print(T.move_xy(100,10)(T.bold('CABINS')))
         print(T.move_xy(20,20)('“You poke your head out of the door very slowly, allowing the hallway running from the east to west to become visible. All of the other doors are shut and the silence is only broken by the security guard at the end of the east hallway quite a ways down. His head swinging back and forth in an agitated motion. He looks around the corner and immediately turns and tries to run. He trips and falls on his knees, stumbling to move forward. His hand goes to the pepper spray at his side and he fumbles with the grip. In a moment of particularly bad luck he drops it on the floor just out of his reach as a grotesque, limping… thing steps around the corner. It steps on the spray cracking it into uselessness and reaches for him. You pull the door closed and not a moment later hear the sudden scream of the security guard, then, silence. What would you like to do?”'))
 
@@ -91,12 +94,71 @@ def room_selsction():
         print(T.move_xy(20,20)("“You open the door to the top deck, wind whipping around you. The smell of salt reaches your nose as well as that of burning BBQ. To the east there is a wall and just beyond the black fog of smoke rises. Pointing in that direction a sign reads “Smoking Area.” In the north  there are vacant picnic tables set up for lunch, topped with still closed picnic baskets placed on blankets. What would you like to do?”"))
 
     elif Current_room == 'shopping center' and text_state == 0:
-        pass
+        print(T.move_xy(100,10)(T.bold('SHOPPING CENTER')))
+        print_slow(T.move_xy(20,20)("“You approach the shop and the doors slide open. Upon looking inside you can tell that it is a small room, there is a counter towards the front and a humanoid robot is standing behind it. “Welcome” it says, raising one of its hands in a greeting gesture, “how can I help you today?”"))
+        text_state = 1
+    elif Current_room == 'shopping center' and text_state == 1:
+        print(T.move_xy(100,10)(T.bold('SHOPPING CENTER')))
+        print(T.move_xy(20,20)("“You approach the shop and the doors slide open. Upon looking inside you can tell that it is a small room, there is a counter towards the front and a humanoid robot is standing behind it. “Welcome” it says, raising one of its hands in a greeting gesture, “how can I help you today?”"))
+       
+
+
+def print_board():
+    global n
+    newboard = ""
+    for i in board:
+        for j in i:
+            newboard += (str(j) + ' ')
+        newboard += "\n"
+    return newboard
+    
+    
+
+def find_room():
+        global board
+        for i in range (3):
+            for j in range (3):
+                if board[i][j] == 'x':
+                    return (i,j)
+        return None
 
 
 
-
-
+def arrow_keys():
+    y,x = find_room()
+    while True:
+        if keyboard.is_pressed("left arrow"):
+            try:
+                board[y][x-1] = 'x'
+                board[y][x] = '-'
+                print_board()
+                return
+            except:
+                pass
+        elif keyboard.is_pressed("right arrow"):
+            try:
+                board[y][x+1] = 'x'
+                board[y][x] = '-'
+                print_board()
+                return
+            except:
+                pass
+        elif keyboard.is_pressed("up arrow"):
+            try:
+                board[y-1][x] = 'x'
+                board[y][x] = '-'
+                print_board()
+                return
+            except:
+                pass
+        elif keyboard.is_pressed("down arrow"):
+            try:
+                board[y+1][x] = 'x'
+                board[y][x] = '-'
+                print_board()
+                return
+            except:
+                pass
 
 
 #room_selsction()
@@ -141,7 +203,9 @@ def health_System():
         print('')
         print((T.move_xy(0,100))+ bar)
         print(T.move_xy(0,100)("              " + percent))
+        print(T.move_right(200)+ print_board())
         room_selsction()
+        
         time.sleep(2)
         overall_health -= 1
         update()
@@ -164,6 +228,7 @@ def start():
         #print(T.move_down(2) + 'You pressed ' + T.bold(repr(inp)))
         #start_state = False
         #start_up = AudioSegment.from_file("aiml-game-main\game\Maps\Sounds\Start_up.wav"
+            print_board()
             porgram_start()
         break
 start()
@@ -171,47 +236,4 @@ start()
 
 
 
-#broken stuff need to fix this is the map system
-n = "go"
-board = [['-','-','-'],
-        ['-','x','-'],
-        ['-','-','-']]
-def print_board():
-    global n
-    for i in board:
-        for j in i:
-            print(j, end = "  ")
-        print()
-        n = 'go'
-        arrow_keys()
 
-def find_room():
-        global board
-        for i in range (3):
-            for j in range (3):
-                if board[i][j] == 'x':
-                    return (i,j)
-        return None
-
-
-
-def arrow_keys():
-    global n
-    y,x = find_room()
-    while n == "go":
-            #global player_pos
-        if keyboard.is_pressed("left arrow"):
-            try:
-                board[y][x-1] = 'x'
-                board[y][x] = '-'
-                #print(board0
-                n = 'stop'
-                
-                print_board()
-            except:
-                pass
-        elif keyboard.is_pressed("right arrow"):
-            print("worng???")
-            pass
-        continue
-arrow_keys()
