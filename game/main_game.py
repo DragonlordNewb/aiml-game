@@ -4,7 +4,7 @@
 
 # imports
 from x1 import ent
-import math, random
+import math, random, engine, items
 
 # , room_Database, engine
 # rooms = ['cabins', 'kitchen', 'pool', 'fitness center', 'casino', 'smoking area', 'shopping center', 'the bridge', 'start']
@@ -27,9 +27,12 @@ layout[4][2] = 7
 
 
 # classes:
+from items import*
+
 class Player:
-	def __init__(self, health, experience, inventory, strength, dexterity, resistances, immunities, effects):
-		self.hp = health
+	def __init__(self, max_health, current_health, experience, inventory, strength, dexterity, resistances, immunities, effects):
+		self.max_health = max_health
+		self.current_health=current_health
 		self.exp = experience
 		self.str = strength
 		self.dex = dexterity
@@ -37,10 +40,13 @@ class Player:
 		self.res = resistances
 		self.imm = immunities
 		self.eff = effects
+		self.armor=0
 		self.inv = []
 		self.res = []
 		self.imm = []
 		self.eff = []
+
+	yae = Bludgeoning_Weapon("yae", 10, .15, "joemother of 3")
 
 	def gain_item(self, item):
 		self.inv.append(item)
@@ -53,6 +59,21 @@ class Player:
 
 	def gain_effect(self, effect):
 		self.inv.append(effect)
+
+	def deal_damage(self):
+		return self.yae.use_item()
+	
+	def deal_bludgeon(self):
+		return self.yae.get_bludgeoning()
+
+	def take_damage(self, damage, bludgeon=0.0):
+		if (bludgeon > 0.0): 
+			if bludgeon < self.armor:
+				self.current_health -= abs((1-self.armor + bludgeon) * damage)
+			elif bludgeon >= self.armor:
+				self.current_health -= abs(damage)
+		else:
+			self.current_health -= abs(damage * (1-self.armor))
 
 
 # usage: Player = Player(health, experience, inventory, strength, dexterity, intelligence, wisdom, charisma, resistances, immunities, effects)
