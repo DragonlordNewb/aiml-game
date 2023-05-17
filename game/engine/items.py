@@ -1,4 +1,5 @@
 from game import data
+import math
 
 class Item:
     def __init__(self, name, description, quantity: int=1) -> None:
@@ -17,7 +18,7 @@ class Item:
     
    
 class Melee_Weapon(Item):
-    def __init__(self, name, damage, description, quantity: int=1):
+    def __init__(self, name: str, damage: int, description: str):
         self.name = name
         self.quantity = quantity
         self.damage= (-1 * abs(damage))
@@ -32,7 +33,7 @@ class Range_Weapon(Item):
     max_range = 0
     current_range=0
 
-    def __init__(self, name, damage, range, description):
+    def __init__(self, name: str, damage: int, range: int, description: str):
         self.name=name
         self.damage= (-1 * abs(damage))
         self.description= description
@@ -57,7 +58,7 @@ class Bludgeoning_Weapon(Item):
     #blugeoning should be a decimal, never more than 1
     bludgeoning=0
     
-    def __init__(self, name, damage, bludgeoning, description):
+    def __init__(self, name: str, damage: int, bludgeoning: float, description: str):
         self.name=name
         self.damage = (-1 * abs(damage))
         self.bludgeoning = bludgeoning
@@ -114,7 +115,7 @@ class Armor(Item):
     #defense should always be a decimal value
     defense=0
     
-    def __init__(self, defense):
+    def __init__(self, defense: float):
     
         self.defense = defense
    
