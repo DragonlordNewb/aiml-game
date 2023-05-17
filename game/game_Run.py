@@ -9,6 +9,7 @@ from pydub.playback import play
 import time
 import keyboard
 from room_selector import Current_room
+from room_selector import *
 #import engine 
 #from engine import rooms
 #from save import health
@@ -26,7 +27,7 @@ overall_health = 150
 #Current_room = 'Cabins'
 board = [['-','-','-'],
         ['-','x','-'],
-        ['-','-','-']]
+         ['-','-','-']]
 
 
 def print_slow(text):
@@ -127,39 +128,110 @@ def find_room():
 
 def arrow_keys():
     y,x = find_room()
+    global Current_room_old
+    global Current_room
+    global Room_map
+    global Room_north
+    global Room_east
+    global Room_south
+    global Room_west 
     while True:
-        if keyboard.is_pressed("left arrow"):
+        print(Room_map)
+        if keyboard.is_pressed("right arrow"):
             try:
-                board[y][x-1] = 'x'
-                board[y][x] = '-'
-                print_board()
-                return
-            except:
-                pass
-        elif keyboard.is_pressed("right arrow"):
-            try:
+                Current_room = Room_map[y][x+1]
                 board[y][x+1] = 'x'
-                board[y][x] = '-'
-                print_board()
-                return
             except:
-                pass
-        elif keyboard.is_pressed("up arrow"):
+                print("not valid room ")
             try:
-                board[y-1][x] = 'x'
-                board[y][x] = '-'
-                print_board()
-                return
+                Room_east = Room_map[y][x+2]
+                board[y][x+2] = '-'
             except:
-                pass
+                Room_east = " No Room"   
+            try:
+                Room_west = Room_map[y][x]
+                board[y][x] = '-'
+            except:
+                Room_west = " No Room"
+            try:
+                Room_south = Room_map[y+1][x+1]
+                board[y+1][x+1] = '-'
+            except:
+                Room_south = " No Room"
+            try:
+                Room_north = Room_map[y-1][x+1]
+                board[y-1][x+1] = '-'
+            except:
+                Room_north = " No Room"
+        elif keyboard.is_pressed("left arrow"):
+            try:
+                Current_room = Room_map[y+1][x]
+                board[y+1][x] = 'x'
+            except:
+                print("not valid room ")
+            try:
+                Room_east = Room_map[y+1][x+1]
+                board[y+1][x+1] = '-'
+            except:
+                Room_east = " No Room"   
+            try:
+                Room_west = Room_map[y+1][x-1]
+                board[y-1][x+1] = '-'
+            except:
+                Room_west = " No Room"
+            try:
+                Room_south = Room_map[y+2][x]
+                board[y+2][x] = '-'
+            except:
+                Room_south = " No Room"
+            try:
+                Room_north = Room_map[y][x]
+                board[y][x] = '-'
+            except:
+                Room_north = " No Room"
+
         elif keyboard.is_pressed("down arrow"):
             try:
-                board[y+1][x] = 'x'
-                board[y][x] = '-'
-                print_board()
-                return
+                Current_room = Room_map[y][x-1]
             except:
-                pass
+                print("not valid room ")
+            try:
+                Room_east = Room_map[y][x]
+            except:
+                Room_east = " No Room"   
+            try:
+                Room_west = Room_map[y][x-2]
+            except:
+                Room_west = " No Room"
+            try:
+                Room_south = Room_map[y+1][x-1]
+            except:
+                Room_south = " No Room"
+            try:
+                Room_north = Room_map[y-1][x-1]
+            except:
+                Room_north = " No Room"
+        elif keyboard.is_pressed("up arrow"):
+            try:
+                Current_room = Room_map[y-1][x]
+            except:
+                print("not valid room ")
+            try:
+                Room_east = Room_map[y-1][x+1]
+            except:
+                Room_east = " No Room"   
+            try:
+                Room_west = Room_map[y-1][x-1]
+            except:
+                Room_west = " No Room"
+            try:
+                Room_south = Room_map[y][x]
+            except:
+                Room_south = " No Room"
+            try:
+                Room_north = Room_map[y-2][x]
+            except:
+                Room_north = " No Room"
 
 
 #room_selsction()
@@ -204,7 +276,7 @@ def health_System():
         print('')
         print((T.move_xy(0,100))+ bar)
         print(T.move_xy(0,100)("              " + percent))
-        print(T.move_right(200)+ print_board())
+        print(T.move_right(150) + print_board())
         room_selsction()
         
         time.sleep(2)
@@ -223,7 +295,7 @@ def porgram_start():
 def start():
     while start_state ==  True:
         print(T.home + T.clear + T.move_y(T.height // 2))
-        print(T.black_on_blue(T.center('press any key to continue.')))
+        print(T.black_on_blue(T.center('RESIZE SCREEN then press any key to continue.')))
         with T.cbreak(), T.hidden_cursor():
             inp = T.inkey()
         #print(T.move_down(2) + 'You pressed ' + T.bold(repr(inp)))
