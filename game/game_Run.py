@@ -1,7 +1,8 @@
 #Hello welocme to our AIML game for 2023 This is the main file you will use to do gui eveything else will be working though this i hope inordre to install please do "pip install blessed" 
 #into the terminal and please run this file though python launcher for best expncence. enjoy.
 #DOCS CAN BE FOUND IN GITHUB
-#if you have a version room_Selector that has userinputs it will not work and fail so please make sure your files are up to date 
+#if you have a version room_Selector that has userinputs it will not work and fail so please make sure your files are up to date
+#!!!!!!KEYCLICKS WILL NOT WORK ON MAC!!!!!!# 
 
 import blessed
 from pydub import AudioSegment
@@ -126,6 +127,7 @@ def find_room():
 
 
 
+#the arrow keys will not work i ran out of time to work out the kinks
 def arrow_keys():
     y,x = find_room()
     global Current_room_old
@@ -136,7 +138,7 @@ def arrow_keys():
     global Room_south
     global Room_west 
     while True:
-        print(Room_map)
+        #print(Room_map)
         if keyboard.is_pressed("right arrow"):
             try:
                 Current_room = Room_map[y][x+1]
@@ -163,7 +165,7 @@ def arrow_keys():
                 board[y-1][x+1] = '-'
             except:
                 Room_north = " No Room"
-        elif keyboard.is_pressed("left arrow"):
+        elif keyboard.is_pressed("down arrow"):
             try:
                 Current_room = Room_map[y+1][x]
                 board[y+1][x] = 'x'
@@ -189,50 +191,59 @@ def arrow_keys():
                 board[y][x] = '-'
             except:
                 Room_north = " No Room"
-
-        elif keyboard.is_pressed("down arrow"):
+        elif keyboard.is_pressed("left arrow"):
             try:
                 Current_room = Room_map[y][x-1]
+                board[y][x-1] = 'x'
             except:
                 print("not valid room ")
             try:
                 Room_east = Room_map[y][x]
+                board[y][x] = '-'
             except:
                 Room_east = " No Room"   
             try:
                 Room_west = Room_map[y][x-2]
+                board[y][x-1] = '-'
             except:
                 Room_west = " No Room"
             try:
                 Room_south = Room_map[y+1][x-1]
+                board[y+1][x-1] = '-'
             except:
                 Room_south = " No Room"
             try:
                 Room_north = Room_map[y-1][x-1]
+                board[y-1][x-1] = '-'
             except:
                 Room_north = " No Room"
         elif keyboard.is_pressed("up arrow"):
             try:
                 Current_room = Room_map[y-1][x]
+                board[y-1][x] = 'x'
             except:
                 print("not valid room ")
             try:
                 Room_east = Room_map[y-1][x+1]
+                board[y-1][x+1] = '-'
             except:
                 Room_east = " No Room"   
             try:
                 Room_west = Room_map[y-1][x-1]
+                board[y-1][x-1] = '-'
             except:
                 Room_west = " No Room"
             try:
                 Room_south = Room_map[y][x]
+                board[y][x] = '-'
             except:
                 Room_south = " No Room"
             try:
                 Room_north = Room_map[y-2][x]
+                board[y-2][x] = '-'
             except:
                 Room_north = " No Room"
-
+            
 
 #room_selsction()
 
