@@ -289,7 +289,6 @@ def health_System():
         print(T.move_xy(0,100)("              " + percent))
         print(T.move_right(150) + print_board())
         room_selsction()
-        
         time.sleep(2)
         overall_health -= 1
         update()
