@@ -1,0 +1,6 @@
+import nltk
+
+input = """Random words"""
+tokens = nltk.word_tokenize(input)
+print(tokens)
+tagged = nltk.pos_tag(tokens)
